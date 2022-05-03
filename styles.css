@@ -1,0 +1,18 @@
+body{
+    background-color: aquamarine;
+}
+
+.container {
+    background-color: white;
+    height: 80vh;
+}
+
+.card {
+    margin: 1rem;
+}
+
+.row {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
