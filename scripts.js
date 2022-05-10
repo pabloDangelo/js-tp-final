@@ -2,6 +2,7 @@
 let botonAgregar = document.getElementById('botonAgregar');
 let botonMostrar = document.getElementById('botonMostrar');
 let botonBuscar = document.getElementById('botonBuscar');
+let personajesDiv = document.getElementById('personajes');
 
 
 // Inputs personajes
@@ -27,9 +28,10 @@ botonAgregar.addEventListener('click', () => {
     bando = prompt('Ingrese el bando del Personaje');
     
     let personaje = new Personaje(nombre, planeta, arma, bando);
-
     
     personajesList.push(personaje);
+
+    
 
     return;
 });
@@ -41,10 +43,44 @@ botonMostrar.addEventListener('click', () => {
     if(personajesList.length == 0)
         alert('No existen personajes cargados');
     else
-        console.log(personajesList);
+
+        for(let p of personajesList){
+
+            let li = document.createElement('li');
+            li.innerHTML = (`<li>Nombre:${p.nombre}, Planeta:${p.planeta}, Arma:${p.arma}, Bando:${p.bando}</li>`);
+            
+            personajesDiv.append(li);
+        }
 
     return;
 });
+
+
+// Eliminar Personajes
+botonEliminar.addEventListener('click', () => {
+    if(personajesList.length == 0)
+        alert('No existen personajes cargados');
+
+    else {
+
+        // Elimino los items de la lista HTML
+
+        let liList = document.getElementsByTagName("li");
+        
+        for(let li of liList){
+
+            li.remove();            
+        }
+        
+        // Vacio la lista
+        personajesList = [];
+    }
+
+        
+
+    return;
+});
+
 
 
 // Buscar personajes
