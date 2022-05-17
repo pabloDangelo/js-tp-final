@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: aquamarine;
 }
 
@@ -23,4 +23,50 @@ body{
 
 .hide{
     display: none;
+} */
+
+
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.header {
+    background-color: rgb(218, 255, 222);
+    padding: 15px;
+}
+
+.boton-carrito {
+    border: 0;
+    background-color: rgb(218, 255, 222);
+    color: rgb(0, 204, 75);
+    font-size: 2em;
+}
+
+/* .header i {
+    color: cornflowerblue;
+    font-size: 2em;
+} */
+
+.content row {
+    height: 80vh;
+}
+
+.card {
+    width: 20%;
+    margin: 1%;
+}
+
+.footer{
+    color: antiquewhite;
+    background-color: cornflowerblue;
+    padding: 15px;
+
+}
+
+.footer ul {
+    list-style-type: none;
 }
