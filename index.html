@@ -14,93 +14,53 @@
     <script src="https://kit.fontawesome.com/2dfada6a03.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
-    <!-- <div class="container">
-        <div class="row header">
-            <div class="col-xs-12 text-center">
-                <h1>Simulador JavaScript</h1>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>En esta seccion puedes agregar personajes:</p>
-                <button class="btn btn-primary" id="botonAgregar">
-                    Agregar Personaje
-                </button>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>En esta seccion puedes mostrar el listado completo de personajes:</p>
-                <button class="btn btn-primary" id="botonMostrar">
-                    Mostrar Listado de Personajes
-                </button>
-            </div>
-        </div>
+    <div class="container">
+        <header class="row header">
+            <div class="col-md-11 text-center">
+                <h1>Las Mil y Una Tazas</h1>
 
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>En esta seccion puedes Eliminar el listado completo de personajes:</p>
-                <button class="btn btn-primary" id="botonEliminar">
-                    Eliminar Listado de Personajes
-                </button>
-            </div>
-        </div>
+                <h2>Tienda de Tazas</h2>
 
-        <div class="row">
-            <div class="col-xs-12">
-                <h2>Coleccion de personajes:</h2>
-                <ul id="personajes">
+            </div>
+            <div class="col-md-1">
+                <button class="boton-carrito"><i class="fas fa-shopping-cart"></i></button>   
+                <label class="total-unidades-carrito"></label>             
+            </div>
+        </header>
+
+        <form action="" class="row busqueda" id="busqueda">
+            <div class="offset-7 col-md-1">
+                <label for="buscar">Buscar:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="inputBuscar" class="form-control" placeholder="Buscar producto..">
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-danger" id="botonBuscar">Buscar</button>
+            </div>
+        </form>
+
+        <section class="row content text-center" id="catalogo-tazas">
+
+        </section>
+
+        <footer class="row footer">
+            <div class="col-md-4">
+                <ul>
+                    <li>Contacto</li>
+                    <li>Email: lasmilyunatazas@gmail.com</li>
+                    <li>Tel: 11-3846-6361</li>
+                    <li>Direccion: Independencia 351, Bernal(Quilmes)</li>
                 </ul>
             </div>
-            
-        </div>
-        
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <p>En esta seccion puedes filtrar segun el criterio deseado y mostrar los personajes por consola:</p>
-                <button class="btn btn-primary" id="botonBuscar">
-                    Buscar Personajes por criterio
-                </button>
-            </div>
-        </div> -->
+        </footer>
 
-        <div class="container">
-            <header class="row header">
-                <div class="col-md-11 text-center">
-                    <h1>Las Mil y Una Tazas</h1>
-
-                    <h2>Tienda de Tazas</h2>
-                </div>
-                <div class="col-md-1">
-                    <button class="boton-carrito"><i class="fas fa-shopping-cart"></i></button>                
-                </div>
-            </header>
-
-            <section class="row content text-center" id="catalogo-tazas">
-
-            </section>
-            
-            <footer class="row footer">
-                <div class="col-md-4">
-                    <ul>
-                        <li>Contacto</li>
-                        <li>Email: lasmilyunatazas@gmail.com</li>
-                        <li>Tel: 11-3846-6361</li>
-                        <li>Direccion: Independencia 351, Bernal(Quilmes)</li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
-        
-        
     </div>
 
-      <!-- JavaScript -->
-      <script src="./clases.js"></script>
-      <script src="./scripts.js"></script>
+    <!-- JavaScript -->
+    <script src="./clases.js"></script>
+    <script src="./scripts.js"></script>
 
 </body>
 </html>

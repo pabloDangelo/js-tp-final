@@ -1,168 +1,42 @@
-
-// let botonAgregar = document.getElementById('botonAgregar');
-// let botonMostrar = document.getElementById('botonMostrar');
-// let botonBuscar = document.getElementById('botonBuscar');
-// let personajesDiv = document.getElementById('personajes');
-
-
-// // Inputs personajes
-// class Personaje {
-    
-//     constructor(nombre, planeta, arma, bando){
-//         this.nombre = nombre;
-//         this.planeta = planeta;
-//         this.arma = arma;
-//         this.bando = bando;
-//     }
-// }
-
-// let nombre, planeta, arma, habilidades, personajesList;
-// personajesList = [];
-
-// // Agregar personaje
-// botonAgregar.addEventListener('click', () => {
-    
-//     nombre = prompt('Ingrese el nombre del Personaje');
-//     planeta = prompt('Ingrese el planeta del Personaje');
-//     arma = prompt('Ingrese el arma del Personaje');
-//     bando = prompt('Ingrese el bando del Personaje');
-    
-//     let personaje = new Personaje(nombre, planeta, arma, bando);
-    
-//     personajesList.push(personaje);
-
-    
-
-//     return;
-// });
-
-
-
-// // Mostrar Listado de Personajes
-// botonMostrar.addEventListener('click', () => {
-//     if(personajesList.length == 0)
-//         alert('No existen personajes cargados');
-//     else
-
-//         for(let p of personajesList){
-
-//             let li = document.createElement('li');
-//             li.innerHTML = (`<li>Nombre:${p.nombre}, Planeta:${p.planeta}, Arma:${p.arma}, Bando:${p.bando}</li>`);
-            
-//             personajesDiv.append(li);
-//         }
-
-//     return;
-// });
-
-
-// // Eliminar Personajes
-// botonEliminar.addEventListener('click', () => {
-//     if(personajesList.length == 0)
-//         alert('No existen personajes cargados');
-
-//     else {
-
-//         // Elimino los items de la lista HTML
-
-//         let liList = document.getElementsByTagName("li");
-        
-//         for(let li of liList){
-
-//             li.remove();            
-//         }
-        
-//         // Vacio la lista
-//         personajesList = [];
-//     }
-
-        
-
-//     return;
-// });
-
-
-
-// // Buscar personajes
-
-// let mostrarFiltrados = (lista) => {
-//     if(lista.length == 0)
-//         alert('No existen personajes cargados');
-//     else
-//         console.log(lista);
-
-//     return;
-// }
-
-// botonBuscar.addEventListener('click', () => {
-
-//     let criterioNum = prompt('Ingrese criterio de busqueda: 1) Nombre, 2) Planeta, 3) Arma, 4) Bando.');
-//     let criterioString;
-//     let filtro;
-//     switch(criterioNum){
-//         case '1':
-//             criterioString = 'nombre';
-//             filtro = prompt('Busqueda por nombre: Ingrese un nombre');
-//             break;
-//         case '2':
-//             criterioString = 'planeta';
-//             filtro = prompt('Busqueda por planeta: Ingrese un planeta');
-//             break;
-//         case '3':
-//             criterioString = 'arma';
-//             filtro = prompt('Busqueda por arma: Ingrese un arma');
-//             break;
-//         case '4':
-//             criterioString = 'bando';
-//             filtro = prompt('Busqueda por bando: Ingrese un bando');
-//             break;
-//         default:
-//             'No ingreso un criterio valido'
-//             break;
-//     }
-
-//     let listaFiltrada = personajesList.filter(personaje => personaje[criterioString].toLowerCase() == filtro.toLowerCase());
-//     mostrarFiltrados(listaFiltrada);
-
-// })
-
-// // let obj =  {
-// //     name: 'Pablo'
-// // }
-
-// // obj.apellido = 'DAngelo';
-
-// // console.log(obj);
-
-
-// Tienda de regalos
-
 // Elementos
-let divTazas = document.getElementById('catalogo-tazas');
+const divTazas = document.getElementById('catalogo-tazas');
+const botonesComprar = document.querySelectorAll('.boton-comprar');
+// const botonesComprar = Array.from(document.getElementsByClassName('boton-comprar'));
+
+const botonCarrito = document.querySelector('.boton-carrito');
+let totalUnidadesCarrito = document.querySelector('.total-unidades-carrito');
+let totalUnidades = 0;
+
+const botonBuscar = document.getElementById('botonBuscar');
+const inputBuscar = document.getElementById('inputBuscar');
+
+
+const carrito = [];
 
 // Array de Tazas para mostrar en catalogo
 let articulos = [
-    new Articulo('Taza 1', 'Peliculas', 550, 50),
-    new Articulo('Taza 2', 'Peliculas', 550, 50),
-    new Articulo('Taza 3', 'Peliculas', 550, 50),
-    new Articulo('Taza 4', 'Peliculas', 550, 50),
-    new Articulo('Taza 5', 'Musica', 750, 30),
-    new Articulo('Taza 6', 'Musica', 750, 30),
-    new Articulo('Taza 7', 'Musica', 750, 30),
-    new Articulo('Taza 8', 'Musica', 750, 30),
-    new Articulo('Taza 9', 'Arte', 600, 20),
-    new Articulo('Taza 10', 'Arte', 600, 20),
-    new Articulo('Taza 11', 'Arte', 600, 20),
-    new Articulo('Taza 12', 'Arte', 600, 20),
-    new Articulo('Taza 13', 'Arte', 600, 20),
-    new Articulo('Taza 14', 'Profesiones', 550, 60),
-    new Articulo('Taza 15', 'Profesiones', 550, 60),
-    new Articulo('Taza 16', 'Profesiones', 550, 60)
-];
+    new Articulo('1', 'Taza 1', 'Peliculas', 550, 50),
+    new Articulo('2', 'Taza 2', 'Peliculas', 550, 50),
+    new Articulo('3', 'Taza 3', 'Peliculas', 550, 50),
+    new Articulo('4', 'Taza 4', 'Peliculas', 550, 50),
+    new Articulo('5', 'Taza 5', 'Musica', 750, 30),
+    new Articulo('6', 'Taza 6', 'Musica', 750, 30),
+    new Articulo('7', 'Taza 7', 'Musica', 750, 30),
+    new Articulo('8', 'Taza 8', 'Musica', 750, 30),
+    new Articulo('9', 'Taza 9', 'Arte', 600, 20),
+    new Articulo('10', 'Taza 10', 'Arte', 600, 20),
+    new Articulo('11', 'Taza 11', 'Arte', 600, 20),
+    new Articulo('12', 'Taza 12', 'Arte', 600, 20),
+    new Articulo('13', 'Taza 13', 'Arte', 600, 20),
+    new Articulo('14', 'Taza 14', 'Profesiones', 550, 60),
+    new Articulo('15', 'Taza 15', 'Profesiones', 550, 60),
+    new Articulo('16', 'Taza 16', 'Profesiones', 550, 60)
+]
 
 articulos.forEach(articulo => {
+
 	divTazas.innerHTML += `
-        <div class="card" id="${articulo.nombre}">
+        <div class="card" id="${articulo.id}">
             <div class="card-header">
                 ${articulo.nombre}
             </div>
@@ -171,10 +45,113 @@ articulos.forEach(articulo => {
             <p class="card-text">Categoria: ${articulo.categoria}</p>
             <p class="card-text">Precio: $${articulo.precio}</p>
             <p class="card-text">Stock: ${articulo.stock}</p>
-            <a href="#" class="btn btn-info">Comprar</a>
+            <a href="#" class="btn btn-info boton-comprar" id="${articulo.id}">Comprar</a>
             </div>
             <div class="card-footer text-muted">
             </div>
         </div>
 	`;
+    
 });
+
+// Eventos
+
+// Agregar al carrito
+articulos.forEach(articulo => {
+
+    let boton = document.getElementById(articulo.id);
+    boton.addEventListener('click', () => {
+        
+    carrito.push(articulo);
+    console.log(carrito);
+
+    totalUnidades ++;
+    totalUnidadesCarrito.innerHTML = totalUnidades;
+
+    });
+
+    return;
+
+});
+
+// Abrir carrito
+botonCarrito.addEventListener('click', () => {
+
+    console.log('Se abrio el carrito');
+
+    let s = 'Hola';
+    console.log(s.includes('a'))
+
+    return;
+
+})
+
+
+// Buscar producto
+botonBuscar.addEventListener('click', () => {
+
+    let busqueda = inputBuscar.value;
+
+    // Si no se ingresaron valores de busqueda se sale de la funcion
+    if(!busqueda){
+        
+        return;
+    }
+    else{
+
+        let articulosFiltrados = articulos.filter(articulo => {
+        
+            return articulo.nombre.toLowerCase().includes(busqueda) ||  articulo.categoria.toLowerCase().includes(busqueda)
+             
+         });
+     
+         console.log(articulosFiltrados);
+         divTazas.innerHTML = '';
+     
+         articulosFiltrados.forEach(articulo => {
+     
+             divTazas.innerHTML += `
+                 <div class="card" id="${articulo.id}">
+                     <div class="card-header">
+                         ${articulo.nombre}
+                     </div>
+                     <div class="card-body">
+                     <h5 class="card-title">Taza modelo: ${articulo.nombre}</h5>
+                     <p class="card-text">Categoria: ${articulo.categoria}</p>
+                     <p class="card-text">Precio: $${articulo.precio}</p>
+                     <p class="card-text">Stock: ${articulo.stock}</p>
+                     <a href="#" class="btn btn-info boton-comprar" id="${articulo.id}">Comprar</a>
+                     </div>
+                     <div class="card-footer text-muted">
+                     </div>
+                 </div>
+             `;
+             
+         });
+    }
+
+    return;
+})
+
+
+
+// Consultar que es lo que falla????
+
+    // botonesComprar.forEach(boton => {
+
+    //     console.log(botonesComprar.length);
+
+    //     boton.addEventListener('click', (e) => {
+
+    //         // Se agrega el producto al carrito
+        
+    //         carrito.push(e.target);
+    //         console.log(carrito);
+    //         sumarAlCarrito();
+        
+    //      })
+
+    //     return;
+    // }); 
+    // 
+    
