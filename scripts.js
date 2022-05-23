@@ -56,6 +56,18 @@ function cargarCarrito(){
     return;
 }
 
+function mostrarMensajeProductoAgregado(){
+
+    Swal.fire({
+        title: 'Felicidades!',
+        text: 'Tu producto se ha agregado al carrito!',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+    })
+
+    return;
+}
+
 function renderizarProductos(){
     articulos.forEach(articulo => {
 
@@ -92,6 +104,8 @@ function renderizarProductos(){
         totalUnidades ++;
         totalUnidadesCarrito.innerHTML = totalUnidades;
 
+        mostrarMensajeProductoAgregado();
+
         });
 
         return;
@@ -114,6 +128,19 @@ botonCarrito.addEventListener('click', () => {
 })
 
 
+
+function mostrarMensajeErrorBusqueda(){
+
+    Swal.fire({
+        title: 'Ouch!',
+        text: 'No se han encontrado productos. Intenta buscando algo mas..',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+    })
+
+    return;
+}
+
 // FIltrar producto
 botonBuscar.addEventListener('click', () => {
 
@@ -127,12 +154,19 @@ botonBuscar.addEventListener('click', () => {
     }
     else {
 
-        console.log(busqueda);
+        
+
         let articulosFiltrados = articulos.filter(articulo => {
 
             return articulo.nombre.toLowerCase().includes(busqueda) || articulo.categoria.toLowerCase().includes(busqueda)
 
         });
+
+        if(articulosFiltrados.length === 0) {
+            mostrarMensajeErrorBusqueda();
+
+            return;
+        }
 
          divTazas.innerHTML = '';
      
