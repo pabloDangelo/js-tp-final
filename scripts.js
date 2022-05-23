@@ -1,4 +1,5 @@
 // Elementos
+
 const divTazas = document.getElementById('catalogo-tazas');
 const botonesComprar = document.querySelectorAll('.boton-comprar');
 // const botonesComprar = Array.from(document.getElementsByClassName('boton-comprar'));
@@ -11,7 +12,7 @@ const botonBuscar = document.getElementById('botonBuscar');
 const inputBuscar = document.getElementById('inputBuscar');
 
 
-const carrito = [];
+let carrito = [];
 
 // Array de Tazas para mostrar en catalogo
 let articulos = [
@@ -31,101 +32,128 @@ let articulos = [
     new Articulo('14', 'Taza 14', 'Profesiones', 550, 60),
     new Articulo('15', 'Taza 15', 'Profesiones', 550, 60),
     new Articulo('16', 'Taza 16', 'Profesiones', 550, 60)
-]
+];
 
-articulos.forEach(articulo => {
-
-	divTazas.innerHTML += `
-        <div class="card" id="${articulo.id}">
-            <div class="card-header">
-                ${articulo.nombre}
-            </div>
-            <div class="card-body">
-            <h5 class="card-title">Taza modelo: ${articulo.nombre}</h5>
-            <p class="card-text">Categoria: ${articulo.categoria}</p>
-            <p class="card-text">Precio: $${articulo.precio}</p>
-            <p class="card-text">Stock: ${articulo.stock}</p>
-            <a href="#" class="btn btn-info boton-comprar" id="${articulo.id}">Comprar</a>
-            </div>
-            <div class="card-footer text-muted">
-            </div>
-        </div>
-	`;
+// Carga el carrito de compras al ingresar al sitio
+(function load(){
     
-});
+    cargarCarrito();
 
-// Eventos
+    renderizarProductos();
 
-// Agregar al carrito
-articulos.forEach(articulo => {
+    return;
+})();
 
-    let boton = document.getElementById(articulo.id);
-    boton.addEventListener('click', () => {
+function cargarCarrito(){
+
+    const carritoLocalStorage = JSON.parse(localStorage.getItem('carritoLocalStorage'));
+    if(carritoLocalStorage){
+        carrito = carritoLocalStorage;
+        totalUnidades = carrito.length
+        totalUnidadesCarrito.innerHTML = totalUnidades;
+    }
+
+    return;
+}
+
+function renderizarProductos(){
+    articulos.forEach(articulo => {
+
+        divTazas.innerHTML += `
+            <div class="card bg-light" id="${articulo.id}">
+                <div class="card-header">
+                    <p class="card-text">Categoria: ${articulo.categoria}</p>
+                </div>
+                <img class="card-img-top" src="https://place-hold.it/300" alt="Card image">
+                <div class="card-body">
+                    <h5 class="card-title">Modelo: ${articulo.nombre}</h5>
+                    <p class="card-text">Precio: $${articulo.precio}</p>
+                    <a href="#" class="btn btn-primary boton-comprar" id="${articulo.id}">Comprar</a>
+                </div>
+                <div class="card-footer text-muted">
+                    <p class="card-text">Stock: ${articulo.stock}</p>
+                </div>
+            </div>
+        `;
         
-    carrito.push(articulo);
-    console.log(carrito);
+    });
 
-    totalUnidades ++;
-    totalUnidadesCarrito.innerHTML = totalUnidades;
+    // Agregar al carrito
+    articulos.forEach(articulo => {
+
+        let boton = document.getElementById(articulo.id);
+        boton.addEventListener('click', () => {
+            
+        carrito.push(articulo);
+        
+        // Guardamos 
+        localStorage.setItem('carritoLocalStorage', JSON.stringify(carrito));
+
+        totalUnidades ++;
+        totalUnidadesCarrito.innerHTML = totalUnidades;
+
+        });
+
+        return;
 
     });
 
-    return;
+}
 
-});
+
+// Eventos
 
 // Abrir carrito
 botonCarrito.addEventListener('click', () => {
 
     console.log('Se abrio el carrito');
-
-    let s = 'Hola';
-    console.log(s.includes('a'))
+    //location.href = "./carrito.html";
 
     return;
 
 })
 
 
-// Buscar producto
+// FIltrar producto
 botonBuscar.addEventListener('click', () => {
 
     let busqueda = inputBuscar.value;
+    console.log(busqueda);
 
     // Si no se ingresaron valores de busqueda se sale de la funcion
     if(!busqueda){
-        
-        return;
-    }
-    else{
 
+        renderizarProductos();
+    }
+    else {
+
+        console.log(busqueda);
         let articulosFiltrados = articulos.filter(articulo => {
-        
-            return articulo.nombre.toLowerCase().includes(busqueda) ||  articulo.categoria.toLowerCase().includes(busqueda)
-             
-         });
-     
-         console.log(articulosFiltrados);
+
+            return articulo.nombre.toLowerCase().includes(busqueda) || articulo.categoria.toLowerCase().includes(busqueda)
+
+        });
+
          divTazas.innerHTML = '';
      
          articulosFiltrados.forEach(articulo => {
      
-             divTazas.innerHTML += `
-                 <div class="card" id="${articulo.id}">
-                     <div class="card-header">
-                         ${articulo.nombre}
-                     </div>
-                     <div class="card-body">
-                     <h5 class="card-title">Taza modelo: ${articulo.nombre}</h5>
-                     <p class="card-text">Categoria: ${articulo.categoria}</p>
-                     <p class="card-text">Precio: $${articulo.precio}</p>
-                     <p class="card-text">Stock: ${articulo.stock}</p>
-                     <a href="#" class="btn btn-info boton-comprar" id="${articulo.id}">Comprar</a>
-                     </div>
-                     <div class="card-footer text-muted">
-                     </div>
-                 </div>
-             `;
+            divTazas.innerHTML += `
+                <div class="card bg-light" id="${articulo.id}">
+                    <div class="card-header">
+                        <p class="card-text">Categoria: ${articulo.categoria}</p>
+                    </div>
+                    <img class="card-img-top" src="https://place-hold.it/300" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title">Modelo: ${articulo.nombre}</h5>
+                        <p class="card-text">Precio: $${articulo.precio}</p>
+                        <a href="#" class="btn btn-primary boton-comprar" id="${articulo.id}">Comprar</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p class="card-text">Stock: ${articulo.stock}</p>
+                    </div>
+                </div>
+            `;
              
          });
     }
@@ -154,4 +182,52 @@ botonBuscar.addEventListener('click', () => {
     //     return;
     // }); 
     // 
-    
+
+  
+//#region Carrito.HTML
+
+// let tableProductosTBody = document.getElementById('tbody');
+
+
+// tableProductosTBody.addEventListener('load', () => {
+
+//     carrito.forEach(articulo => {
+
+//         tableProductosTBody.innerHTML += `
+//         <tr>
+//             <td>${producto.nombre}</td>
+//             <td>${producto.precio}</td>
+//             <td>${producto.cantidad}</td>
+//         </tr>`;
+//         return;
+
+//     })
+
+//     return;
+// })
+
+function cargarCarritoHtml(){
+
+    let tableProductosTBody = document.getElementById('detalleCarrito');
+    let totalDetalleCarrito = document.getElementById('totalDetalleCarrito');
+
+    let suma = 0;
+    carrito.forEach(articulo => {
+
+        tableProductosTBody.innerHTML += `
+        <tr>
+            <td>${articulo.nombre}</td>
+            <td>${articulo.precio}</td>
+        </tr>`;
+
+        suma += articulo.precio;
+        totalDetalleCarrito.innerHTML = suma;
+
+        return;
+
+    })
+
+    return;
+}
+
+//#endregion Carrito.HTML

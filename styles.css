@@ -2,20 +2,31 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
+    font-family: Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .header {
-    color: rgb(0, 0, 0);
-    font-style: oblique;
-    background-color: rgb(218, 255, 222);
-    padding: 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 224, 217);
+    padding: 45px;
+}
+
+.header h1 {
+    font-weight: bold;    
+}
+
+.busqueda {
+    display: flex;
+    align-items: center;
+
+    padding: 20px;
+    background-color: rgb(166, 153, 168);
 }
 
 .boton-carrito {
     border: 0;
-    background-color: rgb(218, 255, 222);
-    color: rgb(0, 204, 75);
+    background-color: rgb(3, 224, 217);
+    color: rgb(111, 107, 102);
     font-size: 2em;
 }
 
@@ -32,7 +43,7 @@ body {
 
     height: auto;
     padding: 30px 0;
-    background-color: rgb(222, 222, 188);
+    background-color: rgb(255, 252, 242);
 }
 
 .card {
@@ -51,13 +62,17 @@ body {
     list-style-type: none;
 }
 
-.busqueda {
-    display: flex;
-    align-items: center;
-
-    padding: 20px;
-}
-
 form label {
     font-weight: bold;
 }
+
+
+/*#region Carrito.html */
+
+.section-carrito {
+    padding: 35px;
+}
+
+
+/*#endregion Carrito.html */
+
