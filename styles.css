@@ -23,6 +23,12 @@ body {
     background-color: rgb(166, 153, 168);
 }
 
+#carrito {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
 .boton-carrito {
     border: 0;
     background-color: rgb(3, 224, 217);
@@ -31,9 +37,9 @@ body {
 }
 
 .total-unidades-carrito {
-    position: relative;
-    bottom: 32px;
-    right: 28px;
+    position: absolute;
+    bottom: 35px;
+    right: 20px;
     font-weight: bold;
 }
 

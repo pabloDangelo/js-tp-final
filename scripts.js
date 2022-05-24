@@ -128,7 +128,6 @@ botonCarrito.addEventListener('click', () => {
 })
 
 
-
 function mostrarMensajeErrorBusqueda(){
 
     Swal.fire({
@@ -153,8 +152,6 @@ botonBuscar.addEventListener('click', () => {
         renderizarProductos();
     }
     else {
-
-        
 
         let articulosFiltrados = articulos.filter(articulo => {
 
@@ -196,49 +193,8 @@ botonBuscar.addEventListener('click', () => {
 })
 
 
-
-// Consultar que es lo que falla????
-
-    // botonesComprar.forEach(boton => {
-
-    //     console.log(botonesComprar.length);
-
-    //     boton.addEventListener('click', (e) => {
-
-    //         // Se agrega el producto al carrito
-        
-    //         carrito.push(e.target);
-    //         console.log(carrito);
-    //         sumarAlCarrito();
-        
-    //      })
-
-    //     return;
-    // }); 
-    // 
-
-  
+//------------------------------------------------------------------------------------  
 //#region Carrito.HTML
-
-// let tableProductosTBody = document.getElementById('tbody');
-
-
-// tableProductosTBody.addEventListener('load', () => {
-
-//     carrito.forEach(articulo => {
-
-//         tableProductosTBody.innerHTML += `
-//         <tr>
-//             <td>${producto.nombre}</td>
-//             <td>${producto.precio}</td>
-//             <td>${producto.cantidad}</td>
-//         </tr>`;
-//         return;
-
-//     })
-
-//     return;
-// })
 
 function cargarCarritoHtml(){
 
@@ -265,3 +221,4 @@ function cargarCarritoHtml(){
 }
 
 //#endregion Carrito.HTML
+//------------------------------------------------------------------------------------  
