@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Taza Spiderman",
         "categoria": "Superheroes",
-        "imagen": "/images/productos/1.jpg",
+        "imagen": "images/productos/1.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "nombre": "Taza Batman",
         "categoria": "Superheroes",
-        "imagen": "/images/productos/2.jpg",
+        "imagen": "images/productos/2.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "nombre": "Taza Superman",
         "categoria": "Superheroes",
-        "imagen": "/images/productos/3.jpg",
+        "imagen": "images/productos/3.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "nombre": "Taza Thor",
         "categoria": "Superheroes",
-        "imagen": "/images/productos/4.jpg",
+        "imagen": "images/productos/4.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "nombre": "Taza Musica 1",
         "categoria": "Musica",
-        "imagen": "/images/productos/5.jpg",
+        "imagen": "images/productos/5.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "nombre": "Taza Musica 2",
         "categoria": "Musica",
-        "imagen": "/images/productos/6.jpg",
+        "imagen": "images/productos/6.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "nombre": "Taza Musica 3",
         "categoria": "Musica",
-        "imagen": "/images/productos/7.jpg",
+        "imagen": "images/productos/7.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "nombre": "Taza Musica 4",
         "categoria": "Musica",
-        "imagen": "/images/productos/8.jpg",
+        "imagen": "images/productos/8.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -67,7 +67,7 @@
         "id": 9,
         "nombre": "Taza Musica 5",
         "categoria": "Musica",
-        "imagen": "/images/productos/9.jpg",
+        "imagen": "images/productos/9.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -75,7 +75,7 @@
         "id": 10,
         "nombre": "Taza Star Wars 1",
         "categoria": "Peliculas",
-        "imagen": "/images/productos/10.jpg",
+        "imagen": "images/productos/10.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -83,7 +83,7 @@
         "id": 11,
         "nombre": "Taza Frankenstein",
         "categoria": "Peliculas",
-        "imagen": "/images/productos/11.jpg",
+        "imagen": "images/productos/11.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -91,7 +91,7 @@
         "id": 12,
         "nombre": "Taza Horror Movies",
         "categoria": "Peliculas",
-        "imagen": "/images/productos/12.jpg",
+        "imagen": "images/productos/12.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -99,7 +99,7 @@
         "id": 13,
         "nombre": "Taza Star Wars 2",
         "categoria": "Peliculas",
-        "imagen": "/images/productos/13.jpg",
+        "imagen": "images/productos/13.jpg",
         "precio": 550,
         "stock": 50
     },
@@ -107,7 +107,7 @@
         "id": 14,
         "nombre": "Taza Jurassic Park",
         "categoria": "Peliculas",
-        "imagen": "/images/productos/14.jpg",
+        "imagen": "images/productos/14.jpg",
         "precio": 550,
         "stock": 50
     }
