@@ -15,30 +15,31 @@
 
     <div class="container">
         <header class="row header">
-            <div class="col-sm-11 text-center">
+            <a href="/index.html" class="col-sm-11 text-center">
                 <h1>Las mil y una tazas</h1>
 
                 <h2>Tienda de tazas</h2>
-            </div>
-
-            <div class="col-sm-1">
-                <!-- <button ><i class="fas fa-shopping-cart"></i></button>  -->
-                <a class="boton-carrito" href="./carrito.html"><i class="fas fa-shopping-cart"></i></a>  
-                <label class="total-unidades-carrito"></label>             
-            </div>
+            </a>
         </header>
 
-
-        <!-- Buscador -->
-        <form action="" class="row busqueda" id="busqueda">
-            <div class="offset-7 col-sm-1">
+         <!-- Buscador y Carrito -->
+         <form action="" class="row busqueda" id="busqueda">
+            <!-- offset-7  -->
+            <div class="col-sm-1">
                 <label for="buscar">Buscar:</label>
             </div>
-            <div class="col-sm-3">
-                <input type="text" id="inputBuscar" class="form-control" placeholder="Buscar producto..">
+            <div class="col-sm-5">
+                <input type="text" id="inputBuscar" class="form-control" placeholder="¿Qué estás buscando?">
             </div>
             <div class="col-sm-1">
                 <button class="btn btn-danger" id="botonBuscar">Buscar</button>
+            </div>
+            <div class="offset-4 col-sm-1">
+                <div id="carrito">
+                    <!-- <button ><i class="fas fa-shopping-cart"></i></button>  -->
+                    <a class="boton-carrito" href="./carrito.html"><i class="fas fa-shopping-cart"></i></a>  
+                    <label class="total-unidades-carrito"></label> 
+                </div>
             </div>
         </form>
 
@@ -58,9 +59,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Producto:</th>
-                                <th>Precio unitario:</th>
-                                <!-- <th>Cantidad:</th> -->
+                                <th>Producto</th>
+                                <th>Subtotal</th>
                             </tr>
                         </thead>
                         <tbody id="detalleCarrito">
@@ -69,9 +69,7 @@
                         <tfoot>
                             <tr>
                                 <td>Total:</td>
-                                <!-- <td></td> -->
-                                <!-- <td></td> -->
-                                <td id="totalDetalleCarrito">1200</td>                            
+                                <td id="totalDetalleCarrito"></td>                            
                             </tr>
                             
                         </tfoot>
@@ -80,7 +78,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <button class="btn btn-primary">Finalizar compra</button>
+                    <button class="btn btn-primary" id="botonFinalizarCompra">Finalizar compra</button>
                 </div>
             </div>
             
@@ -101,11 +99,14 @@
 
     <!-------- JavaScript -------->
 
-     <!-- Font Awesome -->
-     <script src="https://kit.fontawesome.com/2dfada6a03.js" crossorigin="anonymous"></script>
+   <!-- Font Awesome -->
+   <script src="https://kit.fontawesome.com/2dfada6a03.js" crossorigin="anonymous"></script>
 
-    <script src="./clases.js"></script>
-    <script src="./scripts.js"></script>
+   <!-- Sweet Alert -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <script src="./clases.js"></script>
+   <script src="./scripts.js"></script>
 
 </body>
 </html>

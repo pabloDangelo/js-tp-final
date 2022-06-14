@@ -9,6 +9,14 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(3, 224, 217);
     padding: 45px;
+
+    cursor: pointer;
+}
+
+.header > a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+
 }
 
 .header h1 {
@@ -20,7 +28,7 @@ body {
     align-items: center;
 
     padding: 20px;
-    background-color: rgb(166, 153, 168);
+    background-color: rgb(233, 233, 233);
 }
 
 #carrito {
@@ -31,8 +39,8 @@ body {
 
 .boton-carrito {
     border: 0;
-    background-color: rgb(3, 224, 217);
-    color: rgb(111, 107, 102);
+    /* background-color: rgb(3, 224, 217); */
+    color: rgb(100, 150, 230);
     font-size: 2em;
 }
 
