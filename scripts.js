@@ -276,7 +276,7 @@ function cargarCarritoHtml(){
     })
 
     addClickEventToFinalizar();
-    
+
     return;
 }
 
@@ -319,7 +319,7 @@ function addClickEventToFinalizar() {
           
               setTimeout(() => {
     
-                window.location.pathname = "/index.html";
+                window.location.pathname = "./index.html";
     
               }, 3000);
     
