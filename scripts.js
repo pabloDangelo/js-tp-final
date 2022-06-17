@@ -319,8 +319,9 @@ function addClickEventToFinalizar() {
           
               setTimeout(() => {
     
-                window.location.pathname = "./index.html";
-    
+                // window.location.pathname = "./index.html";
+                window.location.assign("./index.html");
+
               }, 3000);
     
             } else if (
