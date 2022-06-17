@@ -323,7 +323,6 @@ function addClickEventToFinalizar() {
     
               }, 3000);
     
-    
             } else if (
               /* Read more about handling dismissals below */
               result.dismiss === Swal.DismissReason.cancel
